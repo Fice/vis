@@ -12,7 +12,7 @@ var argv = require('yargs').argv;
 
 var ENTRY             = './index.js';
 var HEADER            = './lib/header.js';
-var DIST              = './dist';
+var DIST              = 'd:/remix/assets/js/editor/3rdparty/';
 var VIS_JS            = 'vis.js';
 var VIS_MAP           = 'vis.map';
 var VIS_MIN_JS        = 'vis.min.js';
@@ -142,15 +142,15 @@ gulp.task('copy', ['clean'], function () {
 });
 
 gulp.task('minify', ['bundle-js'], function (cb) {
-  var result = uglify.minify([DIST + '/' + VIS_JS], uglifyConfig);
+  //var result = uglify.minify([DIST + '/' + VIS_JS], uglifyConfig);
 
   // note: we add a newline '\n' to the end of the minified file to prevent
   //       any issues when concatenating the file downstream (the file ends
   //       with a comment).
-  fs.writeFileSync(DIST + '/' + VIS_MIN_JS, result.code + '\n');
-  fs.writeFileSync(DIST + '/' + VIS_MAP, result.map);
+  //fs.writeFileSync(DIST + '/' + VIS_MIN_JS, result.code + '\n');
+  //fs.writeFileSync(DIST + '/' + VIS_MAP, result.map);
 
-  cb();
+  //cb();
 });
 
 gulp.task('bundle', ['bundle-js', 'bundle-css', 'copy']);
